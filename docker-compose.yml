@@ -1,0 +1,14 @@
+cc_web:
+  build: .
+  ports:
+    - "8000:8000"
+  links:
+    - redis
+  environment:
+    - MAXSIZE=100000000
+
+redis:
+  image: redis:3.0.7-alpine
+  ports: 
+    - '6379:6379'
+  hostname: redis
